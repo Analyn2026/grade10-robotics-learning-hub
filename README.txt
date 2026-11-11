@@ -25,3 +25,19 @@ Lesson 9 - Algorithms and Flowcharts: RBT109
 Lesson 10 - Introduction to Arduino Programming: RBT110
 Lesson 11 - Conditional Statements: RBT111
 Lesson 12 - Sensor-Based Project Design: RBT112
+
+
+INSTALL PROMPT AND APPEARANCE UPDATE
+- The app displays an installation guide on first visit and an Install App button.
+- On supported Android browsers, the button invokes the browser's native PWA installation prompt.
+- If the browser does not offer a native prompt, learners can use Chrome menu > Install app / Add to Home screen. On iPhone, use Safari Share > Add to Home Screen.
+- The page background uses a soft light green inspired by DepEd green (#176B45), with the main cards remaining white for readability.
+- PWA installation cannot prevent switching to other apps or the phone home screen. The assessment can detect when the page becomes hidden in supported browsers, but only a device-level kiosk/managed-device mode can enforce app lock-down.
+
+
+OFFICIAL SCHOOL LOGO AND REVIEW MODE UPDATE
+- The official Burauen Comprehensive National High School logo is stored at icons/school-logo.png and displayed in the school header.
+- The PWA home-screen icons (192px and 512px) have been regenerated using the supplied school logo.
+- After the 45-minute timer or screen-switch limit locks a lesson, learner answers are saved locally and the lesson discussion remains visible for review.
+- Reopening a previously locked lesson opens it in read-only review mode; answer fields and assessment controls remain disabled.
+- Upload/replace the full package contents in the GitHub repository root, including the icons folder, and allow the updated service worker to refresh on learners' devices.

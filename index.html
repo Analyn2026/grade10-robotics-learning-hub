@@ -3,28 +3,34 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#176b45">
+<meta name="theme-color" content="#e8f3e9">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="apple-touch-icon" href="icons/icon-192.png">
 <title>Robotics Learning Hub | Grade 10</title>
 <style>
-:root{--green:#176b45;--dark:#123b32;--mint:#e8f5ee;--ink:#18332b;--muted:#62746b;--line:#e1ebe4;--gold:#ffd166}
-*{box-sizing:border-box}body{margin:0;background:#f1f6f2;color:var(--ink);font-family:system-ui,-apple-system,Segoe UI,Arial,sans-serif}
+:root{--green:#176b45;--dark:#123b32;--mint:#e1f1e5;--ink:#18332b;--muted:#62746b;--line:#e1ebe4;--gold:#ffd166}
+*{box-sizing:border-box}body{margin:0;background:#e8f3e9;color:var(--ink);font-family:system-ui,-apple-system,Segoe UI,Arial,sans-serif}
 header{background:linear-gradient(135deg,#123b32,#176b45);color:white;padding:22px 17px 20px}
-.wrap{max-width:980px;margin:auto}.brand{font-size:12px;letter-spacing:1.3px;text-transform:uppercase;color:#c7ead5;font-weight:800}.schoolbrand{display:flex;align-items:center;gap:10px;margin-top:10px;color:#fff}.schoolbrand strong{display:block;font-size:14px}.schoolbrand span{display:block;font-size:12px;color:#d8eadf}.school-logo{width:54px;height:54px;border:2px solid #ffffffa0;border-radius:50%;display:grid;place-items:center;background:#ffffff18;font-size:10px;font-weight:900;flex-shrink:0}.student-profile-title{font-size:12px;font-weight:900;color:var(--green);letter-spacing:.7px;margin-bottom:10px}.hero{display:flex;gap:15px;align-items:center}.hero h1{font-size:clamp(27px,6vw,39px);line-height:1.05;margin:8px 0}.hero p{margin:0;color:#e0eee5;max-width:600px;font-size:14px}.logo{font-size:44px;background:#ffffff1b;border:1px solid #ffffff33;border-radius:18px;width:76px;height:76px;display:grid;place-items:center;flex-shrink:0}
+.wrap{max-width:980px;margin:auto}.brand{font-size:12px;letter-spacing:1.3px;text-transform:uppercase;color:#c7ead5;font-weight:800}.schoolbrand{display:flex;align-items:center;gap:10px;margin-top:10px;color:#fff}.schoolbrand strong{display:block;font-size:14px}.schoolbrand span{display:block;font-size:12px;color:#d8eadf}.school-logo{width:54px;height:54px;border:2px solid #ffffffa0;border-radius:50%;display:grid;place-items:center;background:#ffffff18;font-size:10px;font-weight:900;flex-shrink:0}.school-logo-img{width:68px;height:68px;object-fit:contain;border-radius:50%;background:#fff;flex-shrink:0;border:2px solid #ffffffa0}.student-profile-title{font-size:12px;font-weight:900;color:var(--green);letter-spacing:.7px;margin-bottom:10px}.hero{display:flex;gap:15px;align-items:center}.hero h1{font-size:clamp(27px,6vw,39px);line-height:1.05;margin:8px 0}.hero p{margin:0;color:#e0eee5;max-width:600px;font-size:14px}.logo{font-size:44px;background:#ffffff1b;border:1px solid #ffffff33;border-radius:18px;width:76px;height:76px;display:grid;place-items:center;flex-shrink:0}
 .stats{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}.stat{font-size:12px;background:#ffffff1c;border:1px solid #ffffff30;padding:7px 10px;border-radius:30px}
-main{max-width:980px;margin:auto;padding:15px}.layout{display:grid;grid-template-columns:290px 1fr;gap:14px}.card{background:white;border:1px solid var(--line);border-radius:18px;padding:17px;box-shadow:0 5px 20px #123b3209}.sidebar{align-self:start;position:sticky;top:10px}.sidehead{font-weight:850;margin-bottom:9px}.lessonlist{display:grid;gap:7px;max-height:70vh;overflow:auto}.lessonbtn{border:1px solid var(--line);background:#f8faf8;text-align:left;padding:10px;border-radius:12px;cursor:pointer;color:var(--ink);display:flex;gap:9px;align-items:center}.lessonbtn.active{background:var(--mint);border-color:#91c9a8}.num{width:28px;height:28px;border-radius:9px;background:#e6eee8;display:grid;place-items:center;font-weight:850;color:var(--green);flex-shrink:0}.lessonbtn.done .num{background:var(--green);color:white}.lessonbtn small{display:block;color:var(--muted);font-size:11px;margin-top:2px}
+main{max-width:980px;margin:auto;padding:15px}.layout{display:grid;grid-template-columns:290px 1fr;gap:14px}.card{background:white;border:1px solid var(--line);border-radius:18px;padding:17px;box-shadow:0 5px 20px #123b3209}.sidebar{align-self:start;position:sticky;top:10px}.sidehead{font-weight:850;margin-bottom:9px}.lessonlist{display:grid;gap:7px;max-height:70vh;overflow:auto}.lessonbtn{border:1px solid var(--line);background:#f3f9f4;text-align:left;padding:10px;border-radius:12px;cursor:pointer;color:var(--ink);display:flex;gap:9px;align-items:center}.lessonbtn.active{background:var(--mint);border-color:#91c9a8}.num{width:28px;height:28px;border-radius:9px;background:#e6eee8;display:grid;place-items:center;font-weight:850;color:var(--green);flex-shrink:0}.lessonbtn.done .num{background:var(--green);color:white}.lessonbtn small{display:block;color:var(--muted);font-size:11px;margin-top:2px}
 h2{margin:0 0 8px;font-size:23px}h3{font-size:16px;margin:18px 0 7px}.muted{color:var(--muted);font-size:14px;line-height:1.55}.tag{display:inline-block;background:var(--mint);color:var(--green);font-size:11px;font-weight:850;padding:6px 9px;border-radius:20px;margin-bottom:9px}
 .callout{background:#f0f7f2;border-left:4px solid var(--green);padding:12px;border-radius:10px;font-size:14px;line-height:1.5;margin:12px 0}
-.grid2{display:grid;grid-template-columns:1fr 1fr;gap:9px}.mini{background:#f8faf8;border:1px solid var(--line);border-radius:12px;padding:12px;font-size:13px}.mini b{display:block;margin-bottom:4px;color:var(--green)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:9px}.mini{background:#f3f9f4;border:1px solid var(--line);border-radius:12px;padding:12px;font-size:13px}.mini b{display:block;margin-bottom:4px;color:var(--green)}
 .btn{border:0;background:var(--green);color:white;padding:12px 15px;border-radius:12px;font-weight:800;font-size:14px;cursor:pointer}.btn.alt{background:#eaf3ed;color:var(--dark)}.btn:disabled{opacity:.45;cursor:not-allowed}
 .actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}.activity{border:1px solid var(--line);border-radius:14px;padding:14px;margin-top:15px}
 .question{font-weight:800;font-size:16px;line-height:1.4;margin:12px 0}.choice{display:block;width:100%;text-align:left;border:2px solid var(--line);background:#fafcfb;padding:11px;border-radius:11px;margin:7px 0;font-size:14px;color:var(--ink);cursor:pointer}.choice.correct{background:#e8f6ed;border-color:#3a9b66}.choice.wrong{background:#fff0ee;border-color:#c96860}.feedback{padding:10px;border-radius:10px;font-size:13px;margin-top:8px;line-height:1.45}.good{background:#e8f6ed;color:#195b37}.bad{background:#fff0ee;color:#8b302b}
 .progress{height:9px;background:#e5eee7;border-radius:20px;overflow:hidden;margin:8px 0}.progress div{height:100%;background:#46a56e;width:0}.empty{padding:22px;text-align:center}.footer{text-align:center;color:#78877f;font-size:12px;padding:20px}
-.session{background:#f8faf8;border:1px solid var(--line);border-radius:13px;padding:12px;margin:12px 0}
+.session{background:#f3f9f4;border:1px solid var(--line);border-radius:13px;padding:12px;margin:12px 0}
 .sessionrow{display:grid;grid-template-columns:65px 1fr;gap:8px;padding:7px 0;border-bottom:1px solid var(--line);font-size:13px}
 .sessionrow:last-child{border-bottom:0}.minutes{font-weight:900;color:var(--green)}.modulebox{border:1px solid var(--line);border-radius:14px;padding:14px;margin:14px 0;background:#fff}.modulebox h3{margin:0 0 8px}.step{display:flex;gap:9px;align-items:flex-start;margin:9px 0;font-size:14px;line-height:1.5}.stepnum{background:var(--mint);color:var(--green);font-weight:900;border-radius:9px;padding:5px 8px;flex-shrink:0}.answerbox{width:100%;min-height:90px;border:1px solid #dce8df;border-radius:10px;padding:11px;font:inherit;line-height:1.5;margin-top:7px}.smallnote{font-size:12px;color:var(--muted);line-height:1.5}
 .timerbar{position:sticky;top:0;z-index:20;background:#fff7df;border:1px solid #f0d98a;border-radius:12px;padding:10px 12px;margin:12px 0;display:flex;justify-content:space-between;gap:8px;align-items:center;flex-wrap:wrap}.timerbar strong{font-size:18px;color:#8a5b00;font-variant-numeric:tabular-nums}.timerbar.warning{background:#fff0ee;border-color:#e7aaa4}.securitynote{font-size:12px;color:#62746b;margin:6px 0}.locked-screen{padding:24px;text-align:center;background:#fff4f2;border:1px solid #efc4bf;border-radius:15px;margin:15px 0}
+.install-banner{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;background:#e1f1e5;border:1px solid #a9d2b3;border-left:5px solid #176b45;border-radius:15px;padding:14px 16px;margin:0 0 14px}
+.install-banner p{margin:4px 0 0;font-size:13px;color:#456650;line-height:1.45}.install-actions{display:flex;gap:8px;flex-wrap:wrap}
+.install-modal{position:fixed;inset:0;z-index:1000;background:#123b3288;display:none;align-items:center;justify-content:center;padding:18px}
+.install-modal.show{display:flex}.install-dialog{width:min(440px,100%);background:white;border-radius:20px;padding:22px;box-shadow:0 20px 70px #102b1c55}
+.install-dialog h2{color:#176b45}.install-dialog p,.install-dialog li{font-size:14px;line-height:1.55;color:#4d6254}
+.install-dialog .actions{margin-top:16px}.install-close{float:right;border:0;background:#eef5ef;border-radius:9px;padding:7px 10px;font-weight:800}
 input{font:inherit}
 @media(max-width:480px){.sessionrow{grid-template-columns:55px 1fr}}
 @media(max-width:740px){.layout{grid-template-columns:1fr}.sidebar{position:static}.lessonlist{grid-template-columns:1fr 1fr;max-height:none}.lessonbtn{font-size:12px;padding:8px}.hero{align-items:flex-start}.logo{width:58px;height:58px;font-size:32px}.grid2{grid-template-columns:1fr}}
@@ -35,10 +41,16 @@ input{font:inherit}
 <body>
 <header><div class="wrap">
  <div class="brand">Republic of the Philippines • Department of Education</div>
- <div class="schoolbrand"><div class="school-logo">BCNHS</div><div><strong>Burauen Comprehensive National High School</strong><span>Burauen, Leyte</span></div></div>
+ <div class="schoolbrand"><img class="school-logo-img" src="icons/school-logo.png" alt="Burauen Comprehensive National High School official school logo"><div><strong>Burauen Comprehensive National High School</strong><span>Burauen, Leyte</span></div></div>
  <div class="hero"><div class="logo">🤖</div><div><h1>Grade 10 Robotics Learning Hub</h1><p>Learn the ideas behind robots, sensors, Arduino, and automated systems—one mission at a time. No hardware or programming software needed for these lessons.</p></div></div>
  <div class="stats"><span class="stat">📚 12 lessons • 6 currently open</span><span class="stat">⏱️ 45 min each</span><span class="stat">🎮 Interactive checks</span><span class="stat">📴 Offline module</span></div>
 </div></header>
+<div class="wrap" style="padding:14px 15px 0">
+ <section class="install-banner" id="installBanner">
+  <div><strong style="color:#176b45">📲 Install the Robotics Learning Hub</strong><p>Install it on your phone for quick access. First open it while connected to the internet so lessons can be saved for offline use.</p></div>
+  <div class="install-actions"><button class="btn" id="installButton" type="button">INSTALL APP</button><button class="btn alt" id="installHelpButton" type="button">HOW TO INSTALL</button></div>
+ </section>
+</div>
 <main>
 <div class="card" style="margin-bottom:14px">
  <div class="student-profile-title">LEARNER INFORMATION</div>
@@ -54,6 +66,21 @@ input{font:inherit}
 <aside class="card sidebar"><div class="sidehead">YOUR LEARNING PATH</div><p class="smallnote">Lessons 1–6 are open for review. Lesson 6 is the current required lesson. Lessons 7–12 need an access code from your teacher.</p><div class="muted" id="progressText">0 of 12 lessons completed</div><div class="progress"><div id="progressBar"></div></div><nav class="lessonlist" id="lessonList"></nav><p class="muted" style="font-size:11px">Your completion progress is saved on this device/browser.</p></aside>
 <section class="card" id="content"><div class="empty"><div style="font-size:48px">🚀</div><h2>Welcome, Junior Robotics Engineer!</h2><p class="muted">Lessons 1–6 are open for review, including Lesson 6: How Arduino Reads Sensor Data, which is your current required lesson. Lessons 7–12 require a teacher-provided access code. Each lesson includes reading materials, two written activities, a three-question interactive assessment, and a reflection. Complete each lesson within its 45-minute session. Your timer and attempts are saved on this device.</p><button class="btn" onclick="openLesson(5)">OPEN REQUIRED LESSON: HOW ARDUINO READS SENSOR DATA</button></div></section>
 </div><div class="footer">Robotics Learning Hub • Grade 10 • Designed for classroom learning without physical kits</div></main>
+<div class="install-modal" id="installModal" role="dialog" aria-modal="true" aria-labelledby="installTitle">
+ <div class="install-dialog">
+  <button class="install-close" id="installClose" type="button" aria-label="Close">✕</button>
+  <div style="font-size:34px">📲</div>
+  <h2 id="installTitle">Install Robotics Learning Hub</h2>
+  <p id="installMessage">Add this learning hub to your phone's home screen for easier access.</p>
+  <ol id="installSteps">
+   <li>On Android, open this page in Google Chrome.</li>
+   <li>Tap <b>Install app</b> when the install prompt appears. If it does not, use the browser menu (⋮) and choose <b>Install app</b> or <b>Add to Home screen</b>.</li>
+   <li>Open the installed app once while online so the lessons can be cached for offline use.</li>
+  </ol>
+  <p><b>Note:</b> iPhone users can open this page in Safari, tap Share, then choose <b>Add to Home Screen</b>.</p>
+  <div class="actions"><button class="btn" id="modalInstallButton" type="button">INSTALL APP</button><button class="btn alt" id="modalCloseButton" type="button">LATER</button></div>
+ </div>
+</div>
 <script>
 const lessons=[
 {title:"Introduction to Robotics",time:"What is a robot?",goal:"Explain what a robot is and identify examples of robots and automated systems.",notes:[["What is robotics?","Robotics is the field concerned with designing, building, programming, and using robots."],["What is a robot?","A robot is a machine that can carry out tasks automatically or with some human control. Many robots use sensors, a controller, and parts that move or act."],["Robots around us","Examples include factory robot arms, delivery robots, robot vacuum cleaners, and some medical robots. Not every automatic device is a robot, but automation is an important part of robotics."]],example:"A robot vacuum uses sensors to detect obstacles or edges, a controller to decide what to do, and motors to move.",qs:[
@@ -170,7 +197,8 @@ function openLesson(i){
  const key='robotHubSession_'+i, saved=JSON.parse(localStorage.getItem(key)||'{}');
  if(!saved.deadline){saved.deadline=Date.now()+LIMIT_MS;saved.switches=0;saved.expired=false;localStorage.setItem(key,JSON.stringify(saved));}
  lessonDeadline=saved.deadline;
- if(saved.expired || Date.now()>=lessonDeadline){lockLesson('Time is up. Your answers have been saved automatically.');return;}
+ const reopenInReviewMode=!!saved.expired || Date.now()>=lessonDeadline;
+ if(reopenInReviewMode){lessonExpired=true;saved.expired=true;saveSession(saved,i);}
  if(timerHandle)clearInterval(timerHandle);
  let l=lessons[i];
  document.querySelectorAll(".lessonbtn").forEach(x=>x.classList.remove("active"));
@@ -193,7 +221,7 @@ function openLesson(i){
  '<div class="sessionrow"><span class="minutes">10 min</span><span><b>Interactive assessment</b><br>Answer the three questions and read the feedback.</span></div>'+
  '<div class="sessionrow"><span class="minutes">5 min</span><span><b>Reflection and generalization</b><br>Answer the reflection question and summarize what you learned.</span></div>'+
  '</div>'+
- '<h3>📖 Part 1 – Read and understand the lesson</h3><p class="muted">Read each key idea carefully. These notes serve as your learning material.</p>'+
+ '<h3 id="lessonDiscussion">📖 Part 1 – Read and understand the lesson</h3><p class="muted">Read each key idea carefully. These notes serve as your learning material.</p>'+
  '<div class="grid2">'+notes+'</div>'+
  visualGuide(i)+
  '<div class="callout"><b>💡 Study this example:</b><br>'+l.example+'</div>'+
@@ -223,13 +251,35 @@ function openLesson(i){
  '<button class="btn" '+(i===11?'disabled':'')+' onclick="openLesson('+(i+1)+')">Next module →</button></div>';
  loadModuleWork(i);
  renderQ();
- updateTimer();timerHandle=setInterval(updateTimer,500);updateSecurityStatus();
+ if(reopenInReviewMode){lockLesson("The 45-minute limit or screen-switch limit was reached earlier.");}
+ else{updateTimer();timerHandle=setInterval(updateTimer,500);}
+ updateSecurityStatus();
 }
 function sessionData(i=current){try{return JSON.parse(localStorage.getItem('robotHubSession_'+i)||'{}')}catch(e){return {}}}
 function saveSession(d,i=current){localStorage.setItem('robotHubSession_'+i,JSON.stringify(d))}
 function updateTimer(){if(!lessonDeadline||lessonExpired)return;let ms=Math.max(0,lessonDeadline-Date.now());let sec=Math.ceil(ms/1000);let el=$('timeLeft'),bar=$('timerBar');if(el)el.textContent=String(Math.floor(sec/60)).padStart(2,'0')+':'+String(sec%60).padStart(2,'0');if(bar)bar.classList.toggle('warning',sec<=300);if(ms<=0)lockLesson('The 45-minute time limit has ended. Your written answers have been saved automatically.')}
 function updateSecurityStatus(){let d=sessionData(),a=Number(localStorage.getItem('robotHubAttempts_'+current)||0),el=$('switchStatus');if(el)el.textContent='Screen-switch warnings: '+(d.switches||0)+' / '+MAX_SWITCHES+' • Assessment attempts: '+a+' / '+MAX_ATTEMPTS}
-function lockLesson(reason){if(lessonExpired)return;lessonExpired=true;if(timerHandle)clearInterval(timerHandle);try{saveModuleWork(current)}catch(e){}let d=sessionData();d.expired=true;saveSession(d);$('content').innerHTML='<div class="locked-screen"><div style="font-size:48px">🔒</div><h2>Lesson Session Locked</h2><p class="muted">'+reason+'</p><p class="muted">Your written answers were saved on this device. This lesson session cannot be reopened after the time limit or screen-switch limit has been reached.</p><button class="btn alt" onclick="downloadModuleWork('+current+')">DOWNLOAD SAVED ANSWERS</button></div>';}
+function lockLesson(reason){
+ if(lessonExpired && document.getElementById("reviewLockNotice"))return;
+ lessonExpired=true;
+ if(timerHandle)clearInterval(timerHandle);
+ try{saveModuleWork(current)}catch(e){}
+ let d=sessionData();d.expired=true;saveSession(d);
+ const content=$("content");
+ if(!content)return;
+ const notice=document.createElement("div");
+ notice.className="locked-screen";notice.id="reviewLockNotice";
+ notice.innerHTML='<div style="font-size:38px">🔒</div><h2>Answering Session Locked</h2><p>'+reason+'</p><p>Your answers have been saved on this device. You can still read and review the lesson discussion below, but you can no longer edit answers or retake the assessment in this session.</p><div class="actions"><button class="btn alt" onclick="downloadModuleWork('+current+')">DOWNLOAD SAVED ANSWERS</button><button class="btn" onclick="document.getElementById(\'lessonDiscussion\').scrollIntoView({behavior:\'smooth\'})">REVIEW LESSON DISCUSSION</button></div>';
+ content.insertBefore(notice,content.firstChild);
+ content.querySelectorAll("textarea.answerbox").forEach(el=>{el.disabled=true;});
+ const quiz=content.querySelector("#quizArea");
+ if(quiz)quiz.querySelectorAll("button,input,select").forEach(el=>{el.disabled=true;});
+ content.querySelectorAll(".modulebox button").forEach(el=>{
+   if(!String(el.getAttribute("onclick")||"").includes("downloadModuleWork"))el.disabled=true;
+ });
+ const status=document.getElementById("saveStatus");
+ if(status)status.textContent="Your answers are saved on this device. The lesson discussion remains available below for review.";
+}
 document.addEventListener('input',e=>{if(['written1','written2','reflection'].includes(e.target.id) && !lessonExpired){try{saveModuleWork(current)}catch(err){}}});
 document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden' && !lessonExpired && lessonDeadline){let d=sessionData();d.switches=(d.switches||0)+1;saveSession(d);if(d.switches>=MAX_SWITCHES){lockLesson('You reached the maximum of 3 screen-switch violations. Your lesson has been locked.');}else{updateSecurityStatus();}}});
 function activityPrompt(title){
@@ -321,6 +371,55 @@ $("studentName").value=localStorage.getItem("robotHubName")||"";
 $("studentGrade").value=localStorage.getItem("robotHubGrade")||"";
 $("studentSection").value=localStorage.getItem("robotHubSection")||"";
 buildNav();
+</script>
+<script>
+let deferredInstallPrompt=null;
+const installBanner=document.getElementById("installBanner");
+const installModal=document.getElementById("installModal");
+const installButton=document.getElementById("installButton");
+const modalInstallButton=document.getElementById("modalInstallButton");
+const installHelpButton=document.getElementById("installHelpButton");
+function isStandaloneApp(){
+ return window.matchMedia("(display-mode: standalone)").matches || window.navigator.standalone===true;
+}
+function showInstallModal(){installModal.classList.add("show");}
+function hideInstallModal(){installModal.classList.remove("show");}
+async function triggerInstall(){
+ if(deferredInstallPrompt){
+   deferredInstallPrompt.prompt();
+   const choice=await deferredInstallPrompt.userChoice;
+   deferredInstallPrompt=null;
+   if(choice && choice.outcome==="accepted"){
+     installBanner.querySelector("strong").textContent="Installing Robotics Learning Hub…";
+   }
+ }else{
+   showInstallModal();
+ }
+}
+installButton.addEventListener("click",triggerInstall);
+modalInstallButton.addEventListener("click",triggerInstall);
+installHelpButton.addEventListener("click",showInstallModal);
+document.getElementById("installClose").addEventListener("click",hideInstallModal);
+document.getElementById("modalCloseButton").addEventListener("click",hideInstallModal);
+window.addEventListener("beforeinstallprompt",event=>{
+ event.preventDefault();
+ deferredInstallPrompt=event;
+ installButton.textContent="INSTALL APP";
+});
+window.addEventListener("appinstalled",()=>{
+ deferredInstallPrompt=null;
+ installBanner.querySelector("strong").textContent="Robotics Learning Hub is installed!";
+ installBanner.querySelector("p").textContent="You can now open it from your phone's home screen. Connect once to load the latest lessons before using offline.";
+ installButton.style.display="none";
+ hideInstallModal();
+});
+if(isStandaloneApp()){
+ installBanner.querySelector("strong").textContent="Robotics Learning Hub is installed!";
+ installBanner.querySelector("p").textContent="You are using the installed app. Connect to the internet occasionally to receive updates.";
+ installButton.style.display="none";
+}else{
+ window.addEventListener("load",()=>{setTimeout(()=>{if(!isStandaloneApp())showInstallModal();},900);},{once:true});
+}
 </script>
 <script>
 if ('serviceWorker' in navigator) {
