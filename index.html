@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#176b45">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+<title>Robotics Learning Hub | Grade 10</title>
+<style>
+:root{--green:#176b45;--dark:#123b32;--mint:#e8f5ee;--ink:#18332b;--muted:#62746b;--line:#e1ebe4;--gold:#ffd166}
+*{box-sizing:border-box}body{margin:0;background:#f1f6f2;color:var(--ink);font-family:system-ui,-apple-system,Segoe UI,Arial,sans-serif}
+header{background:linear-gradient(135deg,#123b32,#176b45);color:white;padding:22px 17px 20px}
+.wrap{max-width:980px;margin:auto}.brand{font-size:12px;letter-spacing:1.3px;text-transform:uppercase;color:#c7ead5;font-weight:800}.schoolbrand{display:flex;align-items:center;gap:10px;margin-top:10px;color:#fff}.schoolbrand strong{display:block;font-size:14px}.schoolbrand span{display:block;font-size:12px;color:#d8eadf}.school-logo{width:54px;height:54px;border:2px solid #ffffffa0;border-radius:50%;display:grid;place-items:center;background:#ffffff18;font-size:10px;font-weight:900;flex-shrink:0}.student-profile-title{font-size:12px;font-weight:900;color:var(--green);letter-spacing:.7px;margin-bottom:10px}.hero{display:flex;gap:15px;align-items:center}.hero h1{font-size:clamp(27px,6vw,39px);line-height:1.05;margin:8px 0}.hero p{margin:0;color:#e0eee5;max-width:600px;font-size:14px}.logo{font-size:44px;background:#ffffff1b;border:1px solid #ffffff33;border-radius:18px;width:76px;height:76px;display:grid;place-items:center;flex-shrink:0}
+.stats{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}.stat{font-size:12px;background:#ffffff1c;border:1px solid #ffffff30;padding:7px 10px;border-radius:30px}
+main{max-width:980px;margin:auto;padding:15px}.layout{display:grid;grid-template-columns:290px 1fr;gap:14px}.card{background:white;border:1px solid var(--line);border-radius:18px;padding:17px;box-shadow:0 5px 20px #123b3209}.sidebar{align-self:start;position:sticky;top:10px}.sidehead{font-weight:850;margin-bottom:9px}.lessonlist{display:grid;gap:7px;max-height:70vh;overflow:auto}.lessonbtn{border:1px solid var(--line);background:#f8faf8;text-align:left;padding:10px;border-radius:12px;cursor:pointer;color:var(--ink);display:flex;gap:9px;align-items:center}.lessonbtn.active{background:var(--mint);border-color:#91c9a8}.num{width:28px;height:28px;border-radius:9px;background:#e6eee8;display:grid;place-items:center;font-weight:850;color:var(--green);flex-shrink:0}.lessonbtn.done .num{background:var(--green);color:white}.lessonbtn small{display:block;color:var(--muted);font-size:11px;margin-top:2px}
+h2{margin:0 0 8px;font-size:23px}h3{font-size:16px;margin:18px 0 7px}.muted{color:var(--muted);font-size:14px;line-height:1.55}.tag{display:inline-block;background:var(--mint);color:var(--green);font-size:11px;font-weight:850;padding:6px 9px;border-radius:20px;margin-bottom:9px}
+.callout{background:#f0f7f2;border-left:4px solid var(--green);padding:12px;border-radius:10px;font-size:14px;line-height:1.5;margin:12px 0}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:9px}.mini{background:#f8faf8;border:1px solid var(--line);border-radius:12px;padding:12px;font-size:13px}.mini b{display:block;margin-bottom:4px;color:var(--green)}
+.btn{border:0;background:var(--green);color:white;padding:12px 15px;border-radius:12px;font-weight:800;font-size:14px;cursor:pointer}.btn.alt{background:#eaf3ed;color:var(--dark)}.btn:disabled{opacity:.45;cursor:not-allowed}
+.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}.activity{border:1px solid var(--line);border-radius:14px;padding:14px;margin-top:15px}
+.question{font-weight:800;font-size:16px;line-height:1.4;margin:12px 0}.choice{display:block;width:100%;text-align:left;border:2px solid var(--line);background:#fafcfb;padding:11px;border-radius:11px;margin:7px 0;font-size:14px;color:var(--ink);cursor:pointer}.choice.correct{background:#e8f6ed;border-color:#3a9b66}.choice.wrong{background:#fff0ee;border-color:#c96860}.feedback{padding:10px;border-radius:10px;font-size:13px;margin-top:8px;line-height:1.45}.good{background:#e8f6ed;color:#195b37}.bad{background:#fff0ee;color:#8b302b}
+.progress{height:9px;background:#e5eee7;border-radius:20px;overflow:hidden;margin:8px 0}.progress div{height:100%;background:#46a56e;width:0}.empty{padding:22px;text-align:center}.footer{text-align:center;color:#78877f;font-size:12px;padding:20px}
+.session{background:#f8faf8;border:1px solid var(--line);border-radius:13px;padding:12px;margin:12px 0}
+.sessionrow{display:grid;grid-template-columns:65px 1fr;gap:8px;padding:7px 0;border-bottom:1px solid var(--line);font-size:13px}
+.sessionrow:last-child{border-bottom:0}.minutes{font-weight:900;color:var(--green)}.modulebox{border:1px solid var(--line);border-radius:14px;padding:14px;margin:14px 0;background:#fff}.modulebox h3{margin:0 0 8px}.step{display:flex;gap:9px;align-items:flex-start;margin:9px 0;font-size:14px;line-height:1.5}.stepnum{background:var(--mint);color:var(--green);font-weight:900;border-radius:9px;padding:5px 8px;flex-shrink:0}.answerbox{width:100%;min-height:90px;border:1px solid #dce8df;border-radius:10px;padding:11px;font:inherit;line-height:1.5;margin-top:7px}.smallnote{font-size:12px;color:var(--muted);line-height:1.5}
+.timerbar{position:sticky;top:0;z-index:20;background:#fff7df;border:1px solid #f0d98a;border-radius:12px;padding:10px 12px;margin:12px 0;display:flex;justify-content:space-between;gap:8px;align-items:center;flex-wrap:wrap}.timerbar strong{font-size:18px;color:#8a5b00;font-variant-numeric:tabular-nums}.timerbar.warning{background:#fff0ee;border-color:#e7aaa4}.securitynote{font-size:12px;color:#62746b;margin:6px 0}.locked-screen{padding:24px;text-align:center;background:#fff4f2;border:1px solid #efc4bf;border-radius:15px;margin:15px 0}
+input{font:inherit}
+@media(max-width:480px){.sessionrow{grid-template-columns:55px 1fr}}
+@media(max-width:740px){.layout{grid-template-columns:1fr}.sidebar{position:static}.lessonlist{grid-template-columns:1fr 1fr;max-height:none}.lessonbtn{font-size:12px;padding:8px}.hero{align-items:flex-start}.logo{width:58px;height:58px;font-size:32px}.grid2{grid-template-columns:1fr}}
+
+.visual-guides{margin:14px 0 18px;padding:14px;border:1px solid #cfe3d5;border-radius:15px;background:#f5faf6}.visual-guides h3{margin:0 0 5px;color:#176b45}.visual-intro{font-size:13px;color:#62746b;line-height:1.5;margin:0 0 11px}.visual-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.visual-tile{background:white;border:1px solid #dfeae2;border-radius:12px;padding:11px;min-width:0}.visual-tile b{display:block;color:#176b45;font-size:13px;margin-bottom:8px}.visual-flow{display:flex;align-items:stretch;gap:5px}.visual-node{flex:1;min-width:0;background:#e8f5ee;border:1px solid #c8e2d0;border-radius:9px;padding:8px 5px;text-align:center;font-size:11px;font-weight:750;color:#18332b;display:grid;place-items:center;overflow-wrap:anywhere}.visual-arrow{align-self:center;color:#176b45;font-weight:900;font-size:16px}.visual-caption{font-size:11px;color:#62746b;line-height:1.4;margin:8px 0 0}.visual-icon{font-size:22px;margin-bottom:5px}@media(max-width:480px){.visual-grid{grid-template-columns:1fr}.visual-tile{padding:10px}}@media print{.visual-guides,.visual-tile{break-inside:avoid}}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+ <div class="brand">Republic of the Philippines • Department of Education</div>
+ <div class="schoolbrand"><div class="school-logo">BCNHS</div><div><strong>Burauen Comprehensive National High School</strong><span>Burauen, Leyte</span></div></div>
+ <div class="hero"><div class="logo">🤖</div><div><h1>Grade 10 Robotics Learning Hub</h1><p>Learn the ideas behind robots, sensors, Arduino, and automated systems—one mission at a time. No hardware or programming software needed for these lessons.</p></div></div>
+ <div class="stats"><span class="stat">📚 12 lessons • 6 currently open</span><span class="stat">⏱️ 45 min each</span><span class="stat">🎮 Interactive checks</span><span class="stat">📴 Offline module</span></div>
+</div></header>
+<main>
+<div class="card" style="margin-bottom:14px">
+ <div class="student-profile-title">LEARNER INFORMATION</div>
+ <div class="grid2">
+  <label style="font-size:13px;font-weight:750">Complete name<br><input id="studentName" placeholder="Enter your complete name" autocomplete="name" style="width:100%;padding:10px;border:1px solid #dce8df;border-radius:10px;margin-top:5px" required></label>
+  <label style="font-size:13px;font-weight:750">Grade level<br><select id="studentGrade" style="width:100%;padding:10px;border:1px solid #dce8df;border-radius:10px;margin-top:5px"><option value="">Select grade level</option><option>Grade 9</option><option>Grade 10</option></select></label>
+  <label style="font-size:13px;font-weight:750">Section<br><input id="studentSection" placeholder="Enter your section" style="width:100%;padding:10px;border:1px solid #dce8df;border-radius:10px;margin-top:5px"></label>
+ </div>
+ <div class="actions"><button class="btn alt" onclick="saveProfile()">SAVE PROFILE</button><button class="btn alt" onclick="teacherView()">TEACHER SUMMARY</button></div>
+ <p class="muted" id="profileStatus" style="font-size:11px;margin-bottom:0">Profile and progress are stored on this device only.</p>
+</div>
+<div class="layout">
+<aside class="card sidebar"><div class="sidehead">YOUR LEARNING PATH</div><p class="smallnote">Lessons 1–6 are open for review. Lesson 6 is the current required lesson. Lessons 7–12 need an access code from your teacher.</p><div class="muted" id="progressText">0 of 12 lessons completed</div><div class="progress"><div id="progressBar"></div></div><nav class="lessonlist" id="lessonList"></nav><p class="muted" style="font-size:11px">Your completion progress is saved on this device/browser.</p></aside>
+<section class="card" id="content"><div class="empty"><div style="font-size:48px">🚀</div><h2>Welcome, Junior Robotics Engineer!</h2><p class="muted">Lessons 1–6 are open for review, including Lesson 6: How Arduino Reads Sensor Data, which is your current required lesson. Lessons 7–12 require a teacher-provided access code. Each lesson includes reading materials, two written activities, a three-question interactive assessment, and a reflection. Complete each lesson within its 45-minute session. Your timer and attempts are saved on this device.</p><button class="btn" onclick="openLesson(5)">OPEN REQUIRED LESSON: HOW ARDUINO READS SENSOR DATA</button></div></section>
+</div><div class="footer">Robotics Learning Hub • Grade 10 • Designed for classroom learning without physical kits</div></main>
+<script>
+const lessons=[
+{title:"Introduction to Robotics",time:"What is a robot?",goal:"Explain what a robot is and identify examples of robots and automated systems.",notes:[["What is robotics?","Robotics is the field concerned with designing, building, programming, and using robots."],["What is a robot?","A robot is a machine that can carry out tasks automatically or with some human control. Many robots use sensors, a controller, and parts that move or act."],["Robots around us","Examples include factory robot arms, delivery robots, robot vacuum cleaners, and some medical robots. Not every automatic device is a robot, but automation is an important part of robotics."]],example:"A robot vacuum uses sensors to detect obstacles or edges, a controller to decide what to do, and motors to move.",qs:[
+["Which statement best describes robotics?",["The study and use of robots","The study of drawing only","The repair of printers only","The study of weather"],0,"Robotics involves designing, building, programming, and using robots."],
+["Which is an example of a robot?",["A plain wooden chair","A robot vacuum cleaner","A paper notebook","A manual broom"],1,"A robot vacuum can sense its surroundings and move automatically."],
+["What is one reason robots are used?",["To perform tasks automatically","To remove the need for all people","To work without energy","To replace every tool"],0,"Robots can help perform repetitive, difficult, or precise tasks."]
+]},
+{title:"Basic Components of a Robot",time:"Sensors, controller, actuators",goal:"Identify the roles of sensors, controllers, actuators, and power sources.",notes:[["Sensors – input","Sensors detect or measure conditions such as light, distance, temperature, or movement."],["Controller – decision maker","A controller, such as an Arduino board, receives input and follows a program to decide what action should happen."],["Actuators – action","Actuators make something happen. Examples include motors that move, and buzzers that make sound. A power source supplies electrical energy."]],example:"In a simple obstacle-avoiding robot: an ultrasonic sensor detects an object, the controller processes the distance, and motors change the robot's movement.",qs:[
+["Which component detects distance or light?",["Actuator","Sensor","Battery","Wheel"],1,"Sensors collect information from the environment."],
+["Which component follows the program and controls the system?",["Controller","Buzzer","Plastic wheel","Chassis"],0,"The controller processes input and sends commands."],
+["Which is an actuator?",["LDR","PIR sensor","Servo motor","Temperature sensor"],2,"A servo motor produces controlled movement, so it is an actuator."]
+]},
+{title:"Introduction to Arduino Uno",time:"Meet the controller board",goal:"Describe the purpose of Arduino Uno and recognize its main board connections.",notes:[["What is Arduino Uno?","Arduino Uno is a microcontroller development board used to build interactive electronic projects. It can read inputs and control outputs according to a program."],["Important board areas","Digital pins can read or control digital signals. Analog input pins A0–A5 can read changing voltages. The board also has power pins, USB connection, and a reset button."],["How it fits into a project","A sensor connects to an input. The Arduino runs a program. An output device, such as an LED or motor, responds to the program."]],example:"Arduino Uno is the controller in a sensor-based classroom light system. It reads the LDR circuit and controls the light according to the program.",qs:[
+["What is the main role of Arduino Uno in a basic sensor project?",["Act as the controller","Act as the trash container","Produce sunlight","Measure sound without a sensor"],0,"Arduino receives input and controls outputs according to its program."],
+["Which labels identify the Uno's analog input pins?",["D0–D13","A0–A5","GND only","TX and RX only"],1,"The Uno has six analog input pins labelled A0 through A5."],
+["What is the USB connection commonly used for?",["Connecting the board to a computer for programming/power","Measuring humidity directly","Replacing every sensor","Opening a motor mechanically"],0,"USB can connect the board to a computer for uploading a program and may provide power."]
+]},
+{title:"Introduction to Sensors",time:"The system's senses",goal:"Explain what sensors do and why automated systems need input.",notes:[["What is a sensor?","A sensor is an input device that detects or measures a physical condition in its surroundings."],["Examples of conditions","Sensors can detect light, distance, movement, temperature, humidity, sound, pressure, or water level."],["Sensor versus decision","A sensor provides information. It does not independently decide the complete response. The controller follows the program to decide what action to take."]],example:"A motion-activated light uses a motion sensor to detect movement. The controller processes the signal and activates a light if the program says to do so.",qs:[
+["What is the primary function of a sensor?",["To detect or measure a condition","To display every program","To store classroom files","To supply mechanical movement"],0,"A sensor provides input by detecting or measuring its surroundings."],
+["Does a sensor alone decide the whole system response?",["Yes, always","No, the controller follows the program","Only when it is red","Only when connected to a wheel"],1,"The controller processes sensor information and follows programmed instructions."],
+["Which is a physical condition a sensor may detect?",["Light intensity","A student's name automatically","A written paragraph's meaning","A file's title"],0,"Light intensity is a physical condition that can be measured."]
+]},
+{title:"Types of Arduino Sensors",time:"Choose the right sensor",goal:"Match common sensors with the conditions they detect.",notes:[["LDR","A Light Dependent Resistor changes resistance according to the light falling on it. It is often used in light-sensing circuits."],["Ultrasonic sensor","An ultrasonic sensor, such as HC-SR04, sends sound pulses and uses their echo to estimate distance."],["PIR sensor","A Passive Infrared (PIR) sensor detects movement by sensing changes in infrared radiation."],["DHT11 and other sensors","DHT11 measures temperature and relative humidity. Other sensors can detect water level, gas, touch, or soil moisture."]],example:"For an automatic plant-watering idea, a soil-moisture sensor is more suitable for checking soil moisture than a PIR motion sensor.",qs:[
+["Which sensor is commonly used to detect light intensity?",["LDR","PIR","Ultrasonic","DHT11"],0,"An LDR responds to the amount of light falling on it."],
+["Which sensor estimates distance using sound waves?",["DHT11","Ultrasonic","LDR","PIR"],1,"An ultrasonic sensor measures the time taken for a sound pulse's echo to return."],
+["Which sensor measures temperature and relative humidity?",["PIR","LDR","DHT11","Push button"],2,"DHT11 provides temperature and humidity readings."]
+]},
+{title:"How Arduino Reads Sensor Data",time:"Analog and digital readings",goal:"Describe how Arduino receives sensor information and distinguish analog and digital input.",notes:[["Sensor data","Sensor data is the information collected by a sensor. The sensor sends an electrical signal to an Arduino input."],["Analog input","An analog signal can vary across a range. On an Arduino Uno, analogRead() normally returns 0–1023 because its default analog-to-digital converter is 10-bit. The exact reading depends on the input voltage and reference."],["Digital input","A basic digital input has two states: HIGH or LOW. digitalRead() reads the state of a digital pin. A push button is a common digital input."],["Important commands","analogRead(A0) reads an analog input at A0. digitalRead(2) reads a digital input at pin 2. digitalWrite() sets a digital output HIGH or LOW."]],example:"If an LDR voltage-divider circuit is connected to A0, analogRead(A0) reads a value from 0 to 1023 on a standard Uno setup. A button connected to pin 2 can be checked with digitalRead(2).",qs:[
+["Which command reads an analog input on A0?",["digitalRead(2)","analogRead(A0)","digitalWrite(13, HIGH)","pinMode(A0, OUTPUT)"],1,"analogRead(A0) reads the analog value at pin A0."],
+["What is the usual analogRead() range on a standard Arduino Uno setup?",["0–10","0–255","0–1023","1–100"],2,"The Uno's default 10-bit ADC returns 0 through 1023."],
+["Which command reads a digital pin's HIGH or LOW state?",["analogRead()","digitalRead()","analogWrite()","delay()"],1,"digitalRead() reads the digital state of an input pin."]
+]},
+{title:"Introduction to Actuators",time:"From signal to action",goal:"Identify common output devices and explain how they respond to controller commands.",notes:[["What is an actuator?","An actuator is a component that creates a physical action or output in response to a control signal."],["Common examples","DC motors create rotation, servo motors move to controlled positions, LEDs produce light, buzzers produce sound, and pumps move liquid."],["Sensor versus actuator","A sensor is an input device that detects information. An actuator is an output device that performs an action."]],example:"In a smart bin, an ultrasonic sensor detects a nearby hand. Arduino processes the distance and commands a servo motor to open the lid.",qs:[
+["Which component can rotate a robot's wheel?",["LDR","DC motor","PIR sensor","DHT11"],1,"A DC motor produces rotational movement."],
+["Which component can produce an audible alert?",["Buzzer","LDR","Ultrasonic sensor","Push button"],0,"A buzzer is an output device that produces sound."],
+["What is the key difference between a sensor and an actuator?",["Sensor detects input; actuator performs an action","Both only store data","Actuator detects light; sensor always moves","There is no difference"],0,"Sensors collect information, while actuators create an output or action."]
+]},
+{title:"Input–Process–Output in Robotics",time:"Connect the whole system",goal:"Trace how information moves from a sensor through a controller to an output.",notes:[["Input","The input is information from a sensor or switch."],["Process","The controller reads the input and follows the program's instructions. It may compare a reading with a set condition."],["Output","The output device performs the action, such as turning on an LED, sounding a buzzer, displaying a value, or moving a motor."],["Why IPO matters","IPO is a simple way to explain how an automated system works and to identify which component is responsible for each task."]],example:"Automatic light: LDR circuit (Input) → Arduino checks the light reading (Process) → LED turns on or off (Output).",qs:[
+["In an automatic light system, what is the input?",["LED","LDR sensor reading","Arduino program","Power switch only"],1,"The LDR provides the input information about light."],
+["What is the process in a sensor-based system?",["The controller follows the program","The sensor makes every decision","The LED measures distance","The battery writes code"],0,"The controller processes input using programmed instructions."],
+["In a motion alarm, what is the output device?",["PIR sensor","Arduino board","Buzzer","USB cable"],2,"The buzzer produces the alarm sound."]
+]},
+{title:"Algorithms and Flowcharts",time:"Plan before programming",goal:"Write a simple algorithm and represent its steps with flowchart symbols.",notes:[["Algorithm","An algorithm is a clear, ordered set of steps for completing a task or solving a problem."],["Flowchart","A flowchart is a diagram that uses symbols and arrows to show the steps and decisions in a process."],["Common symbols","Oval = Start/End; rectangle = Process; parallelogram = Input/Output; diamond = Decision; arrows = direction of flow."],["Why plan first?","Planning helps make the program logic clear before writing code or connecting hardware."]],example:"Automatic light algorithm: Start → read light sensor → is it dark? → Yes: turn light on; No: turn light off → repeat.",qs:[
+["What is an algorithm?",["A set of ordered steps to solve a task","A type of sensor","A motor connector","A battery"],0,"An algorithm describes the steps needed to complete a task."],
+["Which flowchart symbol represents a decision?",["Oval","Rectangle","Diamond","Arrow"],2,"A diamond represents a decision or condition with possible paths."],
+["Which symbol commonly represents Start or End?",["Oval","Diamond","Parallelogram","Triangle"],0,"An oval is commonly used for Start and End."]
+]},
+{title:"Introduction to Arduino Programming",time:"Understand the code structure",goal:"Recognize the basic structure of an Arduino sketch and the purpose of setup() and loop().",notes:[["What is a sketch?","An Arduino program is commonly called a sketch. It contains instructions that tell the board what to do."],["setup()","The setup() function runs once when the board starts or resets. It is commonly used to set pin modes and initialize components."],["loop()","The loop() function repeats continuously while the board is running. It is used for instructions that must keep checking or operating."],["Comments and readability","Comments explain code to people and are ignored by the compiler. Clear names and indentation make programs easier to understand."]],example:"A basic sketch uses setup() to configure a pin, then loop() repeatedly checks an input or updates an output.",qs:[
+["Which function runs once when an Arduino sketch starts?",["loop()","setup()","repeat()","startAgain()"],1,"setup() runs once at startup or reset."],
+["Which function repeats while the board is running?",["setup()","loop()","finish()","compile()"],1,"loop() repeats continuously after setup() finishes."],
+["What is the purpose of a code comment?",["To explain code to readers","To power a motor","To measure voltage","To replace the controller"],0,"Comments help people understand code and are not executed as instructions."]
+]},
+{title:"Conditional Statements",time:"Teach Arduino to decide",goal:"Explain how if and else allow a program to respond to different conditions.",notes:[["Condition","A condition is something a program checks, such as whether a sensor reading is below a chosen threshold."],["if statement","The instructions inside an if block run when its condition is true."],["else statement","The else block runs when the if condition is false. It provides an alternative action."],["Use in robotics","A program can check a sensor value and choose whether to turn on an LED, activate a buzzer, or move a motor."]],example:"If the measured light level is below the chosen threshold, turn on the LED; otherwise, turn it off. The threshold must be selected and tested for the actual circuit.",qs:[
+["When does the code inside an if block run?",["When its condition is true","Every time regardless of condition","Only when power is off","When a comment is read"],0,"An if block runs when its condition evaluates to true."],
+["What is the purpose of else?",["To provide an alternative when the if condition is false","To connect a sensor","To store battery power","To repeat setup() once"],0,"else provides the alternative path when the if condition is false."],
+["In an automatic light program, what could be checked in an if condition?",["Whether the light reading is below a threshold","The color of the Arduino board","The student's shoe size","The filename of a picture"],0,"A sensor reading can be compared with a threshold to decide the light response."]
+]},
+{title:"Sensor-Based Project Design",time:"Create your project plan",goal:"Propose a useful sensor-based project and explain its components, operation, algorithm, and flowchart.",notes:[["Start with a problem","Identify a simple, real-life problem at home, school, or in the community that could be improved by automation."],["Choose suitable components","Select at least one sensor that detects the needed condition, Arduino as the controller, and an output device that performs the action."],["Plan the operation","Explain what the sensor detects, what Arduino processes, and what the output does. Write an algorithm and draw a flowchart."],["Be realistic","A good design is clear, safe, useful, and possible to build with suitable parts. Do not buy materials until the design has been checked and approved."]],example:"Possible idea: water-level warning system. A water-level sensor detects a rising level; Arduino processes the signal; an LED or buzzer warns the user.",qs:[
+["What should you identify first when planning a project?",["A real-life problem to solve","The most expensive motor","A decorative color","A project title copied from someone"],0,"A project should begin with a clear problem or need."],
+["Which combination describes a basic sensor-based project?",["Sensor, Arduino controller, output device","Only a motor and paint","Only a battery and box","Keyboard, monitor, printer"],0,"The sensor provides input, Arduino processes it, and the output device performs an action."],
+["Why should you draw a design and prepare an algorithm before building?",["To plan and check how the system should work","To avoid understanding the components","To make the project more expensive","To skip testing"],0,"Planning helps clarify the parts and logic before construction."]
+]}
+];
+let current=0,answered=new Set(),qIndex=0,locked=false;
+const LIMIT_MS=45*60*1000,MAX_ATTEMPTS=2,MAX_SWITCHES=3;let timerHandle=null,lessonDeadline=0,lessonExpired=false;
+const $=id=>document.getElementById(id);
+function buildNav(){let nav=$("lessonList");nav.innerHTML="";lessons.forEach((l,i)=>{let b=document.createElement("button");b.className="lessonbtn"+(i>=6?" gated":"");b.id="nav"+i;b.onclick=()=>openLesson(i);let state=i<6?"OPEN • Review / completed topic":(isLessonUnlocked(i)?"UNLOCKED":"🔒 ACCESS CODE REQUIRED");b.innerHTML='<span class="num">'+(i+1)+'</span><span><b>'+l.title+'</b><small>'+state+'</small></span>';nav.appendChild(b)});updateProgress()}
+function updateProgress(){let n=answered.size;$("progressText").textContent=n+" of 12 lessons completed";$("progressBar").style.width=(n/12*100)+"%";lessons.forEach((_,i)=>{let b=$("nav"+i);if(b)b.classList.toggle("done",answered.has(i))})}
+function sessionPlan(){return '<div class="session"><b>⏱️ 45-minute lesson plan</b>'+
+'<div class="sessionrow"><span class="minutes">5 min</span><span><b>Motivation and review</b><br>Connect the topic to a familiar school, home, or community example. Ask 2–3 review questions.</span></div>'+
+'<div class="sessionrow"><span class="minutes">15 min</span><span><b>Teacher-led discussion</b><br>Explain the lesson notes, show or draw examples, and clarify important terms.</span></div>'+
+'<div class="sessionrow"><span class="minutes">10 min</span><span><b>Guided application</b><br>Work through the lesson example with the class. Ask learners to explain each step.</span></div>'+
+'<div class="sessionrow"><span class="minutes">10 min</span><span><b>Interactive mission</b><br>Students complete the three-question game or challenge and read the feedback.</span></div>'+
+'<div class="sessionrow"><span class="minutes">5 min</span><span><b>Generalization and exit check</b><br>Ask learners to state one key idea and answer a quick oral or written exit question.</span></div>'+
+'<p class="muted" style="margin:8px 0 0"><b>Total: 45 minutes.</b> Adjust discussion and activity pacing to your class needs.</p></div>'}
+const visualConcepts=[
+["A robot in action",["Sense the surroundings","Process information","Perform a task","Repeat or respond"],"A robot combines sensing, decision-making, and action."],
+["The main robot components",["Sensor: input","Controller: decision","Actuator: action","Power: energy"],"Remember: sensor detects, controller decides, actuator acts."],
+["Arduino as controller",["Input pins receive data","Board follows code","Output pins send signals","System responds"],"Arduino is the controller—not the sensor or the motor."],
+["From environment to action",["Physical condition","Sensor detects it","Controller processes it","Output responds"],"A sensor converts a condition into information the system can use."],
+["Choose the correct sensor",["LDR: light","HC-SR04: distance","PIR: movement","DHT11: temperature + humidity"],"Choose a sensor based on the condition your project needs to detect."],
+["How Arduino reads data",["Sensor signal","Analog or digital pin","analogRead / digitalRead","Program uses the reading"],"Analog readings vary across a range; digital inputs use HIGH or LOW."],
+["From command to movement",["Controller command","Motor / servo","Movement happens","Buzzer / LED / pump"],"Actuators turn a control signal into an action or output."],
+["Input–Process–Output",["INPUT: sensor","PROCESS: Arduino","OUTPUT: device","System response"],"Trace every automated system using Input → Process → Output."],
+["Plan with an algorithm",["Start","Read sensor","Check condition?","Choose an action"],"An algorithm lists steps; a flowchart shows the steps and decisions."],
+["Basic Arduino sketch",["setup(): runs once","Configure pins","loop(): repeats","Check and respond"],"Use setup() for initialization and loop() for repeated instructions."],
+["Make a decision",["Read input","Test a condition","IF true: action A","ELSE: action B"],"Conditional statements let a program choose an action based on a condition."],
+["Design a sensor-based project",["Identify the problem","Choose input sensor","Plan controller logic","Select output"],"Design the system on paper first: identify the need, input, process, and output."]
+];
+function visualGuide(i){
+ const c=visualConcepts[i];
+ const tiles=[
+  {title:'1. Understand the main idea',a:c[1][0],b:c[1][1],cap:'Follow the first two stages and explain what each one does.'},
+  {title:'2. Follow the complete sequence',a:c[1][1],b:c[1][2],cap:'Ask yourself: what information is received, and what happens next?'},
+  {title:'3. Connect the parts',a:c[1][2],b:c[1][3],cap:'Identify the role of each part before describing the system.'},
+  {title:'4. Remember the key point',a:c[1][0],b:c[1][3],cap:c[2]}
+ ];
+ return '<section class="visual-guides"><h3>👀 Visual Learning Guide</h3><p class="visual-intro">Study these diagrams while reading. Trace the arrows from left to right, then explain the process in your own words. These are concept illustrations, not actual wiring instructions.</p><div class="visual-grid">'+tiles.map(t=>'<div class="visual-tile"><b>'+t.title+'</b><div class="visual-flow"><div class="visual-node">'+t.a+'</div><div class="visual-arrow">→</div><div class="visual-node">'+t.b+'</div></div><p class="visual-caption">'+t.cap+'</p></div>').join('')+'</div><p class="visual-caption"><b>Lesson concept:</b> '+c[0]+' — '+c[2]+'</p></section>';
+}
+const LESSON_CODES={6:"RBT107",7:"RBT108",8:"RBT109",9:"RBT110",10:"RBT111",11:"RBT112"};
+function isLessonUnlocked(i){return i<6 || localStorage.getItem("robotHubUnlocked_"+i)==="1";}
+function openLesson(i){
+ if(i>=6 && !isLessonUnlocked(i)){
+   const entered=prompt("This lesson is not yet open. Enter the teacher-provided access code to unlock Lesson "+(i+1)+": "+lessons[i].title);
+   if(entered===null)return;
+   if(entered.trim().toUpperCase()!==LESSON_CODES[i]){
+     alert("Incorrect access code. Please ask your teacher for the correct code.");
+     return;
+   }
+   localStorage.setItem("robotHubUnlocked_"+i,"1");
+   buildNav();
+ }
+ current=i;qIndex=0;locked=false;lessonExpired=false;
+ const key='robotHubSession_'+i, saved=JSON.parse(localStorage.getItem(key)||'{}');
+ if(!saved.deadline){saved.deadline=Date.now()+LIMIT_MS;saved.switches=0;saved.expired=false;localStorage.setItem(key,JSON.stringify(saved));}
+ lessonDeadline=saved.deadline;
+ if(saved.expired || Date.now()>=lessonDeadline){lockLesson('Time is up. Your answers have been saved automatically.');return;}
+ if(timerHandle)clearInterval(timerHandle);
+ let l=lessons[i];
+ document.querySelectorAll(".lessonbtn").forEach(x=>x.classList.remove("active"));
+ $("nav"+i).classList.add("active");
+ let notes=l.notes.map(x=>'<div class="mini"><b>'+x[0]+'</b>'+x[1]+'</div>').join("");
+ $("content").innerHTML=
+ '<span class="tag">SELF-LEARNING MODULE '+(i+1)+' OF 12 • 45 MINUTES</span>'+
+ '<h2>'+l.title+'</h2>'+
+ '<div class="timerbar" id="timerBar"><span>⏳ TIME REMAINING <span class="securitynote">• 45-minute lesson session</span></span><strong id="timeLeft">45:00</strong></div><p class="securitynote" id="switchStatus">Screen-switch warnings: 0 / 3 • Assessment attempts: 0 / 2</p>'+
+ '<p class="muted"><b>Learning objective:</b> '+l.goal+'</p>'+ 
+ '<div class="callout"><b>📌 Instructions for asynchronous learners</b><br>'+
+ 'Work independently and follow the steps in order. Read the lesson carefully, study the example, answer each activity in your own words, and complete the interactive assessment. You do not need an Arduino kit, internet connection, or programming application. You may write your answers in your notebook or in the answer spaces below. Save or download your work before closing the page.</div>'+
+ '<div class="modulebox"><h3>🎯 At the end of this lesson, I can…</h3><p class="muted">'+l.goal+'</p>'+
+ '<div class="smallnote"><b>Suggested learning time:</b> 45 minutes (the countdown continues if you leave the lesson).</div></div>'+
+ '<h3>⏱️ Suggested 45-minute learning plan</h3>'+
+ '<div class="session">'+
+ '<div class="sessionrow"><span class="minutes">5 min</span><span><b>Review and motivation</b><br>Think about what you already know and read the lesson introduction.</span></div>'+
+ '<div class="sessionrow"><span class="minutes">15 min</span><span><b>Read and understand</b><br>Study all lesson notes. Read the examples more than once if needed.</span></div>'+
+ '<div class="sessionrow"><span class="minutes">10 min</span><span><b>Guided activity</b><br>Complete the written/application task below. Explain your answers in your own words.</span></div>'+
+ '<div class="sessionrow"><span class="minutes">10 min</span><span><b>Interactive assessment</b><br>Answer the three questions and read the feedback.</span></div>'+
+ '<div class="sessionrow"><span class="minutes">5 min</span><span><b>Reflection and generalization</b><br>Answer the reflection question and summarize what you learned.</span></div>'+
+ '</div>'+
+ '<h3>📖 Part 1 – Read and understand the lesson</h3><p class="muted">Read each key idea carefully. These notes serve as your learning material.</p>'+
+ '<div class="grid2">'+notes+'</div>'+
+ visualGuide(i)+
+ '<div class="callout"><b>💡 Study this example:</b><br>'+l.example+'</div>'+
+ '<div class="modulebox"><h3>✍️ Part 2 – Activity 1: Check your understanding</h3>'+
+ '<p class="muted">In your own words, answer the question. Do not copy the lesson word for word. Give a clear explanation.</p>'+
+ '<b>'+activityPrompt(l.title)+'</b>'+
+ '<textarea class="answerbox" id="written1" placeholder="Write your answer here..."></textarea>'+
+ '<p class="smallnote">Tip: Write at least 2–3 complete sentences, unless the task asks you to list items.</p></div>'+
+ '<div class="modulebox"><h3>🧩 Part 3 – Activity 2: Apply what you learned</h3>'+
+ '<p class="muted">Read the situation and answer the task. This activity can be completed using only the information in this module.</p>'+
+ '<div class="callout">'+activityScenario(l.title,l.example)+'</div>'+
+ '<textarea class="answerbox" id="written2" placeholder="Write your solution or explanation here..."></textarea>'+
+ '<p class="smallnote">For diagrams or drawings, you may draw them in your notebook and write “See attached drawing” in this space.</p></div>'+
+ '<div class="activity"><span class="tag">🎮 PART 4 – INTERACTIVE ASSESSMENT</span>'+
+ '<h3 style="margin-top:3px">Check your learning</h3>'+
+ '<p class="muted">Answer all three multiple-choice questions. You will receive immediate feedback and an explanation. You have a maximum of 2 assessment attempts for this lesson.</p>'+
+ '<div id="quizArea"></div></div>'+
+ '<div class="modulebox"><h3>💭 Part 5 – Reflection and generalization</h3>'+
+ '<p class="muted">Complete the statement below to summarize your learning.</p>'+
+ '<b>One important thing I learned from this lesson is…</b>'+
+ '<textarea class="answerbox" id="reflection" placeholder="Write your reflection here..."></textarea>'+
+ '<div class="actions"><button class="btn alt" onclick="saveModuleWork('+i+')">SAVE MY ANSWERS</button>'+
+ '<button class="btn alt" onclick="downloadModuleWork('+i+')">DOWNLOAD MY ANSWERS</button></div>'+
+ '<p class="smallnote" id="saveStatus">Answers are saved only in this browser/device. Download your answers or copy them into your notebook before submitting to your teacher.</p></div>'+
+ '<div class="callout"><b>✅ Before you submit:</b><br>Check that you have completed Activity 1, Activity 2, the three-question assessment, and the reflection. Follow your teacher’s instruction on where and how to submit your work.</div>'+
+ '<div class="actions"><button class="btn alt" '+(i===0?'disabled':'')+' onclick="openLesson('+(i-1)+')">← Previous module</button>'+
+ '<button class="btn" '+(i===11?'disabled':'')+' onclick="openLesson('+(i+1)+')">Next module →</button></div>';
+ loadModuleWork(i);
+ renderQ();
+ updateTimer();timerHandle=setInterval(updateTimer,500);updateSecurityStatus();
+}
+function sessionData(i=current){try{return JSON.parse(localStorage.getItem('robotHubSession_'+i)||'{}')}catch(e){return {}}}
+function saveSession(d,i=current){localStorage.setItem('robotHubSession_'+i,JSON.stringify(d))}
+function updateTimer(){if(!lessonDeadline||lessonExpired)return;let ms=Math.max(0,lessonDeadline-Date.now());let sec=Math.ceil(ms/1000);let el=$('timeLeft'),bar=$('timerBar');if(el)el.textContent=String(Math.floor(sec/60)).padStart(2,'0')+':'+String(sec%60).padStart(2,'0');if(bar)bar.classList.toggle('warning',sec<=300);if(ms<=0)lockLesson('The 45-minute time limit has ended. Your written answers have been saved automatically.')}
+function updateSecurityStatus(){let d=sessionData(),a=Number(localStorage.getItem('robotHubAttempts_'+current)||0),el=$('switchStatus');if(el)el.textContent='Screen-switch warnings: '+(d.switches||0)+' / '+MAX_SWITCHES+' • Assessment attempts: '+a+' / '+MAX_ATTEMPTS}
+function lockLesson(reason){if(lessonExpired)return;lessonExpired=true;if(timerHandle)clearInterval(timerHandle);try{saveModuleWork(current)}catch(e){}let d=sessionData();d.expired=true;saveSession(d);$('content').innerHTML='<div class="locked-screen"><div style="font-size:48px">🔒</div><h2>Lesson Session Locked</h2><p class="muted">'+reason+'</p><p class="muted">Your written answers were saved on this device. This lesson session cannot be reopened after the time limit or screen-switch limit has been reached.</p><button class="btn alt" onclick="downloadModuleWork('+current+')">DOWNLOAD SAVED ANSWERS</button></div>';}
+document.addEventListener('input',e=>{if(['written1','written2','reflection'].includes(e.target.id) && !lessonExpired){try{saveModuleWork(current)}catch(err){}}});
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden' && !lessonExpired && lessonDeadline){let d=sessionData();d.switches=(d.switches||0)+1;saveSession(d);if(d.switches>=MAX_SWITCHES){lockLesson('You reached the maximum of 3 screen-switch violations. Your lesson has been locked.');}else{updateSecurityStatus();}}});
+function activityPrompt(title){
+ const prompts={
+ "Introduction to Robotics":"What is robotics, and how can robots help people in everyday life?",
+ "Basic Components of a Robot":"Explain the roles of a sensor, controller, actuator, and power source in a robot.",
+ "Introduction to Arduino Uno":"What is Arduino Uno, and why can it be used as the controller of a simple robotic project?",
+ "Introduction to Sensors":"Why does an automated system need a sensor? Give one example.",
+ "Types of Arduino Sensors":"Choose three sensors discussed in this lesson. State what each one detects or measures.",
+ "How Arduino Reads Sensor Data":"Explain the difference between analog and digital input. Include one example of each.",
+ "Introduction to Actuators":"What is an actuator? Give two examples and describe the action each one produces.",
+ "Input–Process–Output in Robotics":"Explain the Input–Process–Output (IPO) cycle using a familiar automated system.",
+ "Algorithms and Flowcharts":"What is an algorithm, and how does a flowchart help when planning a program?",
+ "Introduction to Arduino Programming":"Explain the difference between setup() and loop() in an Arduino sketch.",
+ "Conditional Statements":"What is a condition in programming, and how does an if-else statement help a system make a decision?",
+ "Sensor-Based Project Design":"Why should a designer identify the problem, sensor, controller, and output before building a sensor-based project?"
+ };
+ return prompts[title]||"Explain the most important idea in this lesson and give an example.";
+}
+function activityScenario(title,example){
+ const scenarios={
+ "Introduction to Robotics":"Situation: Your school wants to use a machine to help sweep the hallway. Describe whether a robot could help and identify one task it may perform.",
+ "Basic Components of a Robot":"Situation: A small robot detects an obstacle and stops. Identify the likely input component, controller, and output/action component.",
+ "Introduction to Arduino Uno":"Situation: You are planning a simple project that turns on an LED when a button is pressed. Explain what role the Arduino Uno will perform.",
+ "Introduction to Sensors":"Situation: A school wants a light to turn on when a person enters a dark room. What information must the system detect before it turns on the light?",
+ "Types of Arduino Sensors":"Situation: A project must detect nearby objects, room movement, and room temperature. Choose a suitable sensor for each task and explain your choices.",
+ "How Arduino Reads Sensor Data":"Situation: A light-sensing circuit is connected to analog pin A0, while a push button is connected to digital pin 2. Identify which Arduino reading command is suitable for each input.",
+ "Introduction to Actuators":"Situation: A system must open a small lid and sound an alert. Choose an actuator for each action and explain your choices.",
+ "Input–Process–Output in Robotics":"Situation: An automatic classroom light detects darkness and turns on an LED. Identify its input, process, and output.",
+ "Algorithms and Flowcharts":"Situation: A light should turn on when the room is dark and turn off when the room is bright. Write the steps in the correct order. Identify where the decision happens.",
+ "Introduction to Arduino Programming":"Situation: An Arduino project must set a pin as an output at startup and repeatedly check a sensor. State which function should contain each task and why.",
+ "Conditional Statements":"Situation: A system should turn on a buzzer if a sensor detects movement; otherwise, the buzzer remains off. Describe the condition and the two possible actions.",
+ "Sensor-Based Project Design":"Situation: Identify one problem at home or in school that could be addressed by a sensor-based project. Name a suitable sensor, controller, and output device, then explain how the system would work."
+ };
+ return scenarios[title]||("Study this example: "+example+" Explain how the system works.");
+}
+function moduleKey(i){return "robotHubModule_"+i}
+function saveModuleWork(i){
+ const data={a1:$("written1")?.value||"",a2:$("written2")?.value||"",reflection:$("reflection")?.value||""};
+ localStorage.setItem(moduleKey(i),JSON.stringify(data));
+ if($("saveStatus"))$("saveStatus").textContent="Your answers for this module have been saved on this device.";
+}
+function loadModuleWork(i){
+ try{const d=JSON.parse(localStorage.getItem(moduleKey(i))||"{}");
+ if($("written1"))$("written1").value=d.a1||"";
+ if($("written2"))$("written2").value=d.a2||"";
+ if($("reflection"))$("reflection").value=d.reflection||"";
+ }catch(e){}
+}
+function downloadModuleWork(i){
+ saveProfile();
+ const n=localStorage.getItem("robotHubName"),g=localStorage.getItem("robotHubGrade"),s=localStorage.getItem("robotHubSection");
+ if(!n||!g||!s){alert("Please save your complete name, grade level, and section first.");return;}
+ saveModuleWork(i);
+ const d=JSON.parse(localStorage.getItem(moduleKey(i))||"{}"),l=lessons[i];
+ const txt="REPUBLIC OF THE PHILIPPINES\nDEPARTMENT OF EDUCATION\nBURAUEN COMPREHENSIVE NATIONAL HIGH SCHOOL\nBurauen, Leyte\n\nGRADE 10 ROBOTICS LEARNING HUB\nLEARNER: "+n+"\nGRADE LEVEL: "+g+"\nSECTION: "+s+"\n\nLESSON: "+l.title+"\n\nActivity 1:\n"+d.a1+"\n\nActivity 2:\n"+d.a2+"\n\nReflection:\n"+d.reflection+"\n";
+ const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([txt],{type:"text/plain"}));a.download="Robotics_"+g.replace(/\s+/g,"_")+"_"+s.replace(/\s+/g,"_")+"_"+n.replace(/\s+/g,"_")+"_Lesson_"+(i+1)+"_Answers.txt";a.click();URL.revokeObjectURL(a.href);
+}
+function renderQ(){
+ if(lessonExpired)return;
+ let used=Number(localStorage.getItem('robotHubAttempts_'+current)||0),active=localStorage.getItem('robotHubAttemptActive_'+current)==='1';
+ if(!active){if(used>=MAX_ATTEMPTS){$('quizArea').innerHTML='<div class="callout">🔒 You have used both assessment attempts for this lesson.</div>';updateSecurityStatus();return;}used++;localStorage.setItem('robotHubAttempts_'+current,String(used));localStorage.setItem('robotHubAttemptActive_'+current,'1');}
+ updateSecurityStatus();let q=lessons[current].qs[qIndex];locked=false;$('quizArea').innerHTML='<div class="muted">Challenge '+(qIndex+1)+' of 3 • Attempt '+used+' of '+MAX_ATTEMPTS+'</div><div class="progress"><div style="width:'+((qIndex)/3*100)+'%"></div></div><div class="question">'+q[0]+'</div>'+q[1].map((v,i)=>'<button class="choice" onclick="choose('+i+',this)">'+String.fromCharCode(65+i)+'. '+v+'</button>').join('')+'<div id="qFeedback"></div><button id="qNext" class="btn" style="margin-top:10px" disabled onclick="advance()">'+(qIndex===2?'FINISH LESSON':'NEXT QUESTION')+'</button>';
+}
+function choose(i,el){if(locked)return;locked=true;let q=lessons[current].qs[qIndex],ok=i===q[2];[...$("quizArea").querySelectorAll(".choice")].forEach((b,n)=>{b.disabled=true;if(n===q[2])b.classList.add("correct");if(n===i&&!ok)b.classList.add("wrong")});$("qFeedback").className="feedback "+(ok?"good":"bad");$("qFeedback").textContent=(ok?"Correct! ":"Not quite. Correct answer: "+q[1][q[2]]+". ")+q[3];$("qNext").disabled=false}
+function advance(){if(qIndex<2){qIndex++;renderQ()}else{localStorage.setItem('robotHubAttemptActive_'+current,'0');answered.add(current);updateProgress();let used=Number(localStorage.getItem('robotHubAttempts_'+current)||0);$("quizArea").innerHTML='<div class="callout"><b>🎉 Assessment attempt completed!</b><br>You answered all three challenges. Attempts used: '+used+' / '+MAX_ATTEMPTS+'.</div>'+(used<MAX_ATTEMPTS?'<button class="btn alt" onclick="startSecondAttempt()">START SECOND ATTEMPT</button> ':'')+'<button class="btn" onclick="'+(current<11?'openLesson('+(current+1)+')':'showFinish()')+'">'+(current<11?'GO TO NEXT LESSON':'VIEW LEARNING PATH')+' →</button>';}}
+function startSecondAttempt(){if(lessonExpired)return;qIndex=0;localStorage.setItem('robotHubAttemptActive_'+current,'0');renderQ()}
+function showFinish(){$("content").innerHTML='<div class="empty"><div style="font-size:48px">🏆</div><h2>Learning path completed!</h2><p class="muted">You have completed the interactive checks for all 12 lessons on this device. Keep reviewing the concepts and be ready to apply them when hardware and software become available.</p><button class="btn" onclick="openLesson(0)">REVIEW LESSONS</button></div>'}
+function saveProfile(){
+ const n=$("studentName").value.trim(), g=$("studentGrade").value.trim(), s=$("studentSection").value.trim();
+ if(!n || !g || !s){$("profileStatus").textContent="Please enter your complete name, grade level, and section before downloading your answers.";return;}
+ localStorage.setItem("robotHubName",n);localStorage.setItem("robotHubGrade",g);localStorage.setItem("robotHubSection",s);
+ $("profileStatus").textContent=n+" • "+g+" • "+s+" • Saved on this device.";
+}
+function teacherView(){
+ const n=localStorage.getItem("robotHubName")||"Not entered";
+ const s=localStorage.getItem("robotHubSection")||"Not entered";
+ const g=localStorage.getItem("robotHubGrade")||"Not entered";
+ const done=[...answered].sort((a,b)=>a-b).map(i=>lessons[i].title);
+ $("content").innerHTML='<span class="tag">LOCAL DEVICE REPORT</span><h2>Teacher Summary</h2><p class="muted">This report shows progress saved in this browser only. It is not automatically sent to the teacher or another device.</p><div class="grid2"><div class="mini"><b>Student</b>'+n+'</div><div class="mini"><b>Grade level</b>'+g+'</div><div class="mini"><b>Section</b>'+s+'</div><div class="mini"><b>Lessons completed</b>'+answered.size+' / 12</div><div class="mini"><b>Completion</b>'+Math.round(answered.size/12*100)+'%</div></div><h3>Completed lessons</h3><p class="muted">'+(done.length?done.join("<br>"):"No lessons completed yet.")+'</p><div class="actions"><button class="btn alt" onclick="openLesson('+current+')">BACK TO LESSON</button><button class="btn alt" onclick="exportReport()">DOWNLOAD REPORT</button></div>';
+}
+function exportReport(){
+ const n=localStorage.getItem("robotHubName")||"Not entered",g=localStorage.getItem("robotHubGrade")||"Not entered",s=localStorage.getItem("robotHubSection")||"Not entered";
+ const done=[...answered].sort((a,b)=>a-b).map(i=>lessons[i].title);
+ const txt="ROBOTICS LEARNING HUB - STUDENT PROGRESS\\nName: "+n+"\\nGrade/Section: "+s+"\\nCompleted: "+answered.size+"/12\\n\\n"+(done.length?done.join("\\n"):"No completed lessons yet.");
+ const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([txt],{type:"text/plain"}));a.download="Robotics_Learning_Hub_Progress.txt";a.click();URL.revokeObjectURL(a.href);
+}
+$("studentName").value=localStorage.getItem("robotHubName")||"";
+$("studentGrade").value=localStorage.getItem("robotHubGrade")||"";
+$("studentSection").value=localStorage.getItem("robotHubSection")||"";
+buildNav();
+</script>
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => { navigator.serviceWorker.register('./service-worker.js').catch(() => {}); });
+}
+</script>
+</body></html>
